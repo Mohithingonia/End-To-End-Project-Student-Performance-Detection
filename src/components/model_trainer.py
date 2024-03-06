@@ -58,6 +58,11 @@ class ModelTrainer:
             then u use grid/random search cv in utils.py i.e by changing
             """
             
+
+            model_report:dict=evaluate_models(x_train=x_train,y_train=y_train,x_test=x_test,y_test=y_test,
+                                             models=models)
+            
+            
             model_report:dict=evaluate_models(x_train=x_train,y_train=y_train,x_test=x_test,
             y_test=y_test,models=models)
             ## To get best model score from dictionary 
@@ -70,7 +75,7 @@ class ModelTrainer:
             best_model = models[best_model_name]
             if best_model_score < 0.6 :
 
-                raise CustomException("No best model found")
+                raise customException("No best model found")
 
             logging.info(f"best model found in our data")
             save_object(
@@ -84,5 +89,5 @@ class ModelTrainer:
 
         except Exception as e:
 
-            raise CustomException(e,sys)
+            raise customException(e,sys)
         

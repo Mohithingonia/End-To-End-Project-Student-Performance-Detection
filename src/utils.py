@@ -7,6 +7,7 @@ import dill
 from sklearn.metrics import r2_score
 from src.exception import customException
 
+
 def save_object(file_path, obj):
 
     try:
@@ -50,4 +51,4 @@ def evaluate_models(x_train,y_train,x_test,y_test,models):
 
     except Exception as e:
 
-        raise CustomException(e,sys)
+        raise customException(e,sys)
